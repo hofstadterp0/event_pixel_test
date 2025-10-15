@@ -11,9 +11,39 @@
     <!-- END OF ALTCRAFT PIXEL CODE !-->
 
 
+    <script>
+        // Функция для регистрации цели и импорта данных пользователя
+        function registerPixelGoal() {
+            const userProfileData = {
+                _fname: "Ted",        // Имя пользователя
+                _lname: "Mad",         // Фамилия пользователя
+                subscriptions: [       // Пример подписки
+                    {
+                        resource_id: 1,
+                        channel: "email",
+                        email: "polina.zakaryan@altcraft.com"
+                    }
+                ]
+            };
+
+            // Вызов пикселя с данными пользователя
+            ak_pixel_push(
+                "some test",                 // Цель: клик
+                5,                     // Значение цели
+                {
+                    db_id: 8,            // ID базы данных, если не указан в настройках пикселя
+                    profile_id: "68edf8d3821dd4f9db37c3dc"
+                },
+                userProfileData,         // Данные профиля для импорта
+                "profile_id"
+            );
+            console.log("Цель зарегистрирована и данные профиля импортированы.");
+        }
+    </script>
 </head>
 <body>
-  <h1>Code Basics</h1>
-  <p>Бесплатные уроки по программированию и HTML для новичков</p>
+
+    <button onclick="registerPixelGoal()">Кликни менz</button>
+
 </body>
 </html>
